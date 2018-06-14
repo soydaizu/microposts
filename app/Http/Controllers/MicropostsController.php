@@ -26,6 +26,9 @@ class MicropostsController extends Controller
             ];
             return view('welcome', $data);
         }
+        else{
+            return view('welcome');
+        }
     }
     public function store(Request $request)
     {

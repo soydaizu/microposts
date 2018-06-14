@@ -13,11 +13,15 @@
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
             </div>
             <div>
+                <div class = "col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 @if (Auth::user()->id == $micropost->user_id)
                     {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
+                @else
+                    @include('user_favorite.favorite_button', ['user' => $user])
                 @endif
+                </div>
             </div>
         </div>
     </li>
